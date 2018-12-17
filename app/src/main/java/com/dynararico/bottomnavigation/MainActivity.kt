@@ -10,22 +10,22 @@ class MainActivity : AppCompatActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
-                trocaFragment()
+                trocaFragment("Home")
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_dashboard -> {
-                trocaFragment()
+                trocaFragment("Dashboard")
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                trocaFragment()
+                trocaFragment("Notificacao")
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
     }
 
-    private fun trocaFragment() {
+    private fun trocaFragment(texto: String) {
         val ft = supportFragmentManager.beginTransaction()
         val fragment = BlankFragment()
         ft.replace(R.id.flContainer, fragment)
