@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun trocaFragment(texto: String) {
         val ft = supportFragmentManager.beginTransaction()
-        val fragment = BlankFragment()
+        val fragment = BlankFragment().newInstance(texto)
         ft.replace(R.id.flContainer, fragment)
         ft.commit()
 
