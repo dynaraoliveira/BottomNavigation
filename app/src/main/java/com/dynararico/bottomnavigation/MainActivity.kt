@@ -27,15 +27,25 @@ class MainActivity : AppCompatActivity() {
 
     private fun trocaFragment(texto: String) {
         val ft = supportFragmentManager.beginTransaction()
-        val fragment = BlankFragment().newInstance(texto)
+        val fragment = BlankFragment.newInstance(texto)
         ft.replace(R.id.flContainer, fragment)
+        ft.addToBackStack(null)
         ft.commit()
+    }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val fragmentManager = supportFragmentManager
+        if (fragmentManager.backStackEntryCount > 0) {
+            fragmentManager.popBackStack()
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        trocaFragment("Home")
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }

@@ -19,11 +19,14 @@ class BlankFragment : Fragment() {
         return view
     }
 
-    fun newInstance(texto: String) : BlankFragment {
-        val fragment = BlankFragment()
-        val bundle = Bundle()
-        bundle.putString("texto", texto)
-        fragment.arguments = bundle
-        return fragment
+    companion object {
+        fun newInstance(texto: String) : BlankFragment {
+            val fragment = BlankFragment()
+            val bundle = Bundle()
+            bundle.putString("texto", texto)
+            fragment.arguments = bundle
+            return fragment
+        }
     }
+
 }
